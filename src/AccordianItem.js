@@ -1,11 +1,10 @@
-import { useState } from "react";
 import "./Accordian.css";
+import Accordian from "./Accordian";
 
-const AccordianItem = ({ question, answer, i }) => {
-  const [isTrue, setIsTrue] = useState(false);
-
+const AccordianItem = ({ question, answer, i, curItem, onOpen }) => {
+  const isTrue = i === curItem;
   function handleClick() {
-    setIsTrue((prev) => !prev);
+    onOpen(i);
   }
 
   return (

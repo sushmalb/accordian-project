@@ -1,5 +1,6 @@
 import AccordianItem from "./AccordianItem";
 import "./Accordian.css";
+import { useState } from "react";
 const obj = [
   {
     q: "What is our national bird ?",
@@ -16,6 +17,8 @@ const obj = [
 ];
 
 const Accordian = () => {
+  const [curItem, setCurItem] = useState(null);
+
   return (
     <div className="accordian">
       {obj.map((item, index) => (
@@ -24,6 +27,8 @@ const Accordian = () => {
           question={item.q}
           answer={item.ans}
           i={index}
+          curItem={curItem}
+          onOpen={setCurItem}
         />
       ))}
     </div>
